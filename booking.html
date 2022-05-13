@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Booking</title>
+</head>
+<body>
+
+    <h1> Create a booking</h1>
+
+    <form action="create_booking.php" method="post">
+        <label>Full Name</label>
+        <input type="text" name="cname" placeholder="Tom Hanks" required>
+        
+        <br/>
+        <label>Phone Number</label>
+        <input type="text" name="phone" placeholder="0272937482" required>
+        <br/>
+        <label>Unit Number</label>
+        <input type="text" name="unumber" placeholder="1">
+        <br/>
+        <label>Street Number</label>
+        <input type="text" name="snumber" placeholder="42" required>
+        <br/>
+        <label>Street Name</label>
+        <input type="text" name="stname" placeholder="Farrington" required>
+        <br/>
+        <label>Suburb</label>
+        <input type="text" name="sbname" placeholder="Lugano">
+        <br/>
+        <label>Destination Suburb</label>
+        <input type="text" name="dsbname" placeholder="Paring">
+        <br/>
+        <label>Pickup Date</label>
+        <input type="text" name="date" placeholder="11/12/2022" required>
+        <br/>
+        <label>Pickup Time</label>
+        <input type="text" name="time" placeholder="14:15" required>
+<br/>
+        <input type="submit" value="Create Booking">
+    
+</body>
+</html>
