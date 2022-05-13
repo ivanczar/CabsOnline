@@ -1,16 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
+<HTML XMLns="http://www.w3.org/1999/xHTML">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Booking</title>
+    <script type="text/javascript" src="xhr.js"></script>
+    <script type="text/javascript" src="ajax.js"> </script>
 </head>
 <body>
 
     <h1> Create a booking</h1>
-
-    <form action="create_booking.php" method="post">
+<div>
+    <form>
         <label>Full Name</label>
         <input type="text" name="cname" placeholder="Tom Hanks" required>
         
@@ -39,7 +37,13 @@
         <label>Pickup Time</label>
         <input type="text" name="time" placeholder="14:15" required>
 <br/>
-        <input type="submit" value="Create Booking">
-    
+<input name="submit" type = "button" onClick = "getData('data.php','targetDiv', cname.value,
+ phone.value, unumber.value, snumber.value, stname.value, sbname.value, dsbname.value, 
+ date.value, time.value) " value = "Create Booking">
+</div>
+
+<div id="targetDiv">
+    <p>Confirmation goes here</p>
+</div>
 </body>
-</html>
+</HTML>
