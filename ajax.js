@@ -1,14 +1,52 @@
-// file simpleajax.js
-// using POST method
+function setDateTime() {
+  var today = new Date();
+
+  var date =
+    today.getFullYear() + "/" + (today.getMonth() + 1) + "/" + today.getDate();
+  document.getElementById("date").value = date;
+
+  var time = today.getHours() + ":" + today.getMinutes();
+  document.getElementById("time").value = time;
+
+  // document.write(date + " " + time);
+}
+
 var xhr = createRequest();
-function getData(dataSource, divID, cname, phone, unumber, snumber, stname, sbname, dsbname, date,time) {
+function getData(
+  dataSource,
+  divID,
+  cname,
+  phone,
+  unumber,
+  snumber,
+  stname,
+  sbname,
+  dsbname,
+  date,
+  time
+) {
   if (xhr) {
     var obj = document.getElementById(divID); //set DOM object to variable
     var requestbody =
-    console.log(cname);
-      "cname=" + encodeURIComponent(cname) + "&phone=" + encodeURIComponent(phone)+ "&unumber=" + encodeURIComponent(unumber)+ "&snumber=" +
-       encodeURIComponent(snumber)+ "&stname=" + encodeURIComponent(stname) + "&sbname=" + encodeURIComponent(sbname)+ "&dsbname=" + 
-       encodeURIComponent(dsbname)+ "&date=" + encodeURIComponent(date)+ "&time=" + encodeURIComponent(time);
+      "cname=" +
+      encodeURIComponent(cname) +
+      "&phone=" +
+      encodeURIComponent(phone) +
+      "&unumber=" +
+      encodeURIComponent(unumber) +
+      "&snumber=" +
+      encodeURIComponent(snumber) +
+      "&stname=" +
+      encodeURIComponent(stname) +
+      "&sbname=" +
+      encodeURIComponent(sbname) +
+      "&dsbname=" +
+      encodeURIComponent(dsbname) +
+      "&date=" +
+      encodeURIComponent(date) +
+      "&time=" +
+      encodeURIComponent(time);
+
     xhr.open("POST", dataSource, true); //open xtml request for POST and send to
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function () {

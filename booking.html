@@ -1,49 +1,56 @@
-<HTML XMLns="http://www.w3.org/1999/xHTML">
-<head>
+<html XMLns="http://www.w3.org/1999/xHTML">
+  <head>
     <title>Create Booking</title>
     <script type="text/javascript" src="xhr.js"></script>
-    <script type="text/javascript" src="ajax.js"> </script>
-</head>
-<body>
+    <script type="text/javascript" src="ajax.js"></script>
+  </head>
+  <body onload="setDateTime()">
+    <h1>Create a booking</h1>
 
-    <h1> Create a booking</h1>
-<div>
-    <form>
+    <div>
+      <form>
         <label>Full Name</label>
-        <input type="text" name="cname" placeholder="Tom Hanks" required>
-        
-        <br/>
-        <label>Phone Number</label>
-        <input type="text" name="phone" placeholder="0272937482" required>
-        <br/>
-        <label>Unit Number</label>
-        <input type="text" name="unumber" placeholder="1">
-        <br/>
-        <label>Street Number</label>
-        <input type="text" name="snumber" placeholder="42" required>
-        <br/>
-        <label>Street Name</label>
-        <input type="text" name="stname" placeholder="Farrington" required>
-        <br/>
-        <label>Suburb</label>
-        <input type="text" name="sbname" placeholder="Lugano">
-        <br/>
-        <label>Destination Suburb</label>
-        <input type="text" name="dsbname" placeholder="Paring">
-        <br/>
-        <label>Pickup Date</label>
-        <input type="text" name="date" placeholder="11/12/2022" required>
-        <br/>
-        <label>Pickup Time</label>
-        <input type="text" name="time" placeholder="14:15" required>
-<br/>
-<input name="submit" type = "button" onClick = "getData('data.php','targetDiv', cname.value,
- phone.value, unumber.value, snumber.value, stname.value, sbname.value, dsbname.value, 
- date.value, time.value) " value = "Create Booking">
-</div>
+        <input type="text" name="cname" placeholder="Tom Hanks" required />
 
-<div id="targetDiv">
-    <p>Confirmation goes here</p>
-</div>
-</body>
-</HTML>
+        <br />
+        <label>Phone Number</label>
+        <input type="text" name="phone" placeholder="0272937482" required />
+        <br />
+        <label>Unit Number</label>
+        <input type="text" name="unumber" placeholder="1" />
+        <br />
+        <label>Street Number</label>
+        <input type="text" name="snumber" placeholder="42" required />
+        <br />
+        <label>Street Name</label>
+        <input type="text" name="stname" placeholder="Farrington" required />
+        <br />
+        <label>Suburb</label>
+        <input type="text" name="sbname" placeholder="Lugano" />
+        <br />
+        <label>Destination Suburb</label>
+        <input type="text" name="dsbname" placeholder="Paring" />
+        <br />
+        <label>Pickup Date</label>
+        <input type="date" id="date" name="date" required />
+        <br />
+        <label>Pickup Time</label>
+        <input type="time" id="time" name="time" required />
+
+        <br />
+        <input
+          name="submit"
+          type="button"
+          onClick="getData('data.php','targetDiv', cname.value,
+ phone.value, unumber.value, snumber.value, stname.value, sbname.value, dsbname.value, 
+ date.value, time.value) "
+          value="Create Booking"
+        />
+      </form>
+    </div>
+
+    <div id="targetDiv">
+      <p>Confirmation goes here</p>
+    </div>
+  </body>
+</html>
