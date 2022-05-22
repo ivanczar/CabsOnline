@@ -1,14 +1,25 @@
+function zeroPad(number) {
+  if (number < 10) return "0" + number;
+  else return number;
+}
+
 function setDateTime() {
   var today = new Date();
 
-  var date =
-    today.getFullYear() + "/" + (today.getMonth() + 1) + "/" + today.getDate();
-  document.getElementById("date").value = date;
-
-  var time = today.getHours() + ":" + today.getMinutes();
+  var time = zeroPad(today.getHours()) + ":" + zeroPad(today.getMinutes());
   document.getElementById("time").value = time;
 
-  // document.write(date + " " + time);
+  var date =
+    zeroPad(today.getFullYear()) +
+    "-" +
+    zeroPad(today.getMonth() + 1) +
+    "-" +
+    zeroPad(today.getDate());
+
+  document.getElementById("date").min = date;
+  document.getElementById("date").value = date;
+
+  console.log(time);
 }
 
 var xhr = createRequest();

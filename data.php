@@ -30,10 +30,16 @@ function refGenerator($rows)
     return $ref;
 }
 
-$countQuery = "SELECT * FROM bookings;";
-$rows = mysqli_query($conn, $countQuery);
-$numRows = mysqli_num_rows($rows) + 1;
+$countquery = "SELECT * FROM bookings;";
+$rows = mysqli_query($conn, $countquery);
+$numrows = mysqli_num_rows($rows) + 1;
 
+
+
+$bookingid = refGenerator($numrows);
+$gendate = date("d/m/Y");
+$gentime = date("H:i");
+$status = "unassigned";
 // get name and password passed from client
 $cname = $_POST["cname"];
 $phone = $_POST["phone"];
@@ -42,13 +48,10 @@ $snumber = $_POST["snumber"];
 $stname = $_POST["stname"];
 $sbname = $_POST["sbname"];
 $dsbname = $_POST["dsbname"];
-$date = $_POST["date"];
-$time = $_POST["time"];
+$pickupdate = $_POST["date"];
+$pickuptime = $_POST["time"];
 
-$bookingID = refGenerator($numRows);
-$gendate = "12/123/12"; //use date()
-$gentime = "12:12"; //use server time
-$status = "unassigned";
+
 
 
 
@@ -67,18 +70,23 @@ $status = "unassigned";
 // sbname VARCHAR(20), dsbname VARCHAR(20), pickupdate VARCHAR(20) NOT NULL, pickuptime VARCHAR(20) NOT NULL);
 
 $insertSQL = "INSERT INTO bookings VALUES 
-('$bookingID', '$gendate', '$gentime', '$status',
+('$bookingid', '$gendate', '$gentime', '$status',
  '$cname', '$phone', '$unumber', '$snumber', '$stname' ,
   '$sbname', '$dsbname' , '$pickupdate', '$pickuptime');";
 
 $query = mysqli_query($conn, $insertSQL);
 
 if ($query) {
+    
+    // $formatdate = date("d-m-Y", strtotime($pickupdate));
+
+
+
     echo "<p name='reference'>Thank you for booking!
     <br>
-    Booking reference number: $bookingID<br>
-    Pickup time: $time<br>
-    Pickup date: $date
+    Booking reference number: $bookingid<br>
+    Pickup time: $pickuptime<br>
+    Pickup date: $pickupdate<br>
     name: $cname
     <p>";
 } else {
