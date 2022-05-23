@@ -67,9 +67,9 @@ if ($query) {
 
 
 
-    echo "<p name='reference'>Thank you,<b> $cname</b>, for your booking!
+    echo "<p name='reference'>Thank you,<i> $cname</i>, for your booking!
     <br>
-    Booking reference number: $bookingid<br>
+    Booking reference number:<b> $bookingid</b><br>
     Pickup time: $pickuptime<br>
     Pickup date: $formatdate<br>
     </p>";

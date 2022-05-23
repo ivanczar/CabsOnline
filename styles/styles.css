@@ -48,7 +48,7 @@ font-weight: bold;
 }
 #searchDiv{
     margin-left: 500px;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-bottom: 50px;
 }
 #inputsDiv{
@@ -80,8 +80,22 @@ font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    /* margin-top: 5px; */
+    color: #fff;
+    background-color: blueviolet;
+    border-color: black;
+    font-weight: bold;
 }
 .content table{
     background-color: #fff;
+}
+p[name=reference]
+{
+    font-size: 20px;
+    font-family: inherit;
+    /* padding: 0.25em 0.5em; */
+    background-color: #fff;
+    border: 2px solid;
+    border-radius: 4px;
+    /* margin-bottom: 150px; */
 }
