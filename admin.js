@@ -3,7 +3,7 @@ function getData(dataSource, searchConfirmID, targetDivID, searchQuery) {
   if (xhr) {
     //   var confirmObj = document.getElementById(searchConfirmID);
     var targetObj = document.getElementById(targetDivID);
-    var confirmObj = document.getElementById(searchConfirmID); 
+    var confirmObj = document.getElementById(searchConfirmID);
     var requestbody = "search=" + encodeURIComponent(searchQuery);
 
     xhr.open("POST", dataSource, true); //open xtml request for POST and send to
@@ -20,13 +20,15 @@ function getData(dataSource, searchConfirmID, targetDivID, searchQuery) {
   }
 }
 
-
 function assign(dataSource, confirmDivID, bookingReference, searchQuery) {
   if (xhr) {
     var targetObj = document.getElementById(confirmDivID);
     // var confObj = document.getElementById("confirmDiv");
-    var requestbody = "bookingRef=" + encodeURIComponent(bookingReference)
-    + "&search=" + encodeURIComponent(searchQuery);
+    var requestbody =
+      "bookingRef=" +
+      encodeURIComponent(bookingReference) +
+      "&search=" +
+      encodeURIComponent(searchQuery);
 
     xhr.open("POST", dataSource, true); //open xtml request for POST and send to
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");

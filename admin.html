@@ -9,7 +9,6 @@ double check marking rubric
 
 -->
 
-
 <!DOCTYPE html>
 <html XMLns="http://www.w3.org/1999/xHTML">
   <head>
@@ -22,26 +21,24 @@ double check marking rubric
     <div id="welcome">
       <h1>Welcome Admin</h1>
       <a href="http://fqd1618.cmslamp14.aut.ac.nz/assign2/booking.html"
-      >Create Booking</a
-    >
+        >Create Booking</a
+      >
     </div>
 
     <form>
       <div id="confirmDiv"><p></p></div>
-<div id="searchDiv">
+      <div id="searchDiv">
+        <h2>Search Booking</h2>
 
+        <input type="text" name="bsearch" placeholder="e.g BRN00001" />
 
-    <h2>Search Booking</h2>
-  
-    <input type="text" name="bsearch" placeholder="e.g BRN00001" />
-
-    <input
-      name="sbutton"
-      type="button"
-      onClick="getData('admin.php', 'confirmDiv', 'targetDiv', bsearch.value)"
-      value="Search"
-    />
-</div>
+        <input
+          name="sbutton"
+          type="button"
+          onClick="getData('admin.php', 'confirmDiv', 'targetDiv', bsearch.value)"
+          value="Search"
+        />
+      </div>
     </form>
 
     <div id="targetDiv"><p></p></div>

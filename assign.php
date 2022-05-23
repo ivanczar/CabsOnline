@@ -52,7 +52,7 @@ while ($row) {
     echo "<td>{$row['dsbname']}</td>";
     $date = date_create($row['pickupdate']);
     $time = $row['pickuptime'];
-    
+
     echo "<td>", date_format($date, 'd/m/Y'), " ", $time, "</td>";
     echo "<td>{$row['bstatus']}</td>";
     echo '<td><input type="button" onClick="assign(\'assign.php\' , \'targetDiv\' , \'' . $rowBookingID . '\', \'' . $adminInput . '\')" value="Assign"/></td></tr>';
