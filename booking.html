@@ -2,7 +2,7 @@
   <head>
     <title>Create Booking</title>
     <script type="text/javascript" src="xhr.js"></script>
-    <script type="text/javascript" src="ajax.js"></script>
+    <script type="text/javascript" src="booking.js"></script>
   </head>
   <body onload="setDateTime()">
     <h1>Create a booking</h1>
@@ -35,13 +35,13 @@
         <input type="date" id="date" name="date" />
         <br />
         <label>Pickup Time</label>
-        <input type="time" id="time" name="time" />
+        <input type="time" id="time" name="time"  />
 
         <br />
         <input
           name="submit"
           type="button"
-          onClick="getData('data.php','targetDiv', cname.value,
+          onClick="getData('booking.php','targetDiv', cname.value,
  phone.value, unumber.value, snumber.value, stname.value, sbname.value, dsbname.value, 
  date.value, time.value) "
           value="Create Booking"

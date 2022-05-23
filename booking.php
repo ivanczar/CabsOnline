@@ -34,8 +34,6 @@ $countquery = "SELECT * FROM bookings;";
 $rows = mysqli_query($conn, $countquery);
 $numrows = mysqli_num_rows($rows) + 1;
 
-
-
 $bookingid = refGenerator($numrows);
 $gendate = date("d/m/Y");
 $gentime = date("H:i");
@@ -51,19 +49,6 @@ $dsbname = $_POST["dsbname"];
 $pickupdate = $_POST["date"];
 $pickuptime = $_POST["time"];
 
-
-
-
-
-
-
-
-// if (empty($cname)) {
-
-//     echo "name empty";
-//     echo "return";
-// }
-
 //CREATE TABLE bookings(bookingID VARCHAR(20) PRIMARY KEY NOT NULL, gendate VARCHAR(20) NOT NULL,
 // gentime VARCHAR(20) NOT NULL, status VARCHAR(20) NOT NULL, cname VARCHAR(20) NOT NULL,
 // phone VARCHAR(20) NOT NULL, unumber INT, snumber INT NOT NULL, stname VARCHAR(20) NOT NULL,
@@ -77,18 +62,17 @@ $insertSQL = "INSERT INTO bookings VALUES
 $query = mysqli_query($conn, $insertSQL);
 
 if ($query) {
-    
-    // $formatdate = date("d-m-Y", strtotime($pickupdate));
+
+    $formatdate = date("d-m-Y", strtotime($pickupdate));
 
 
 
-    echo "<p name='reference'>Thank you for booking!
+    echo "<p name='reference'>Thank you,<b> $cname</b>, for your booking!
     <br>
     Booking reference number: $bookingid<br>
     Pickup time: $pickuptime<br>
-    Pickup date: $pickupdate<br>
-    name: $cname
-    <p>";
+    Pickup date: $formatdate<br>
+    </p>";
 } else {
     die(mysqli_error($conn));
     echo "FAIL";
