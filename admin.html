@@ -1,30 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html XMLns="http://www.w3.org/1999/xHTML">
   <head>
+    <title>Admin</title>
     <script type="text/javascript" src="xhr.js"></script>
     <script type="text/javascript" src="admin.js"></script>
-    <title>Admin</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
   </head>
-  <body>
-    <h1>Welcome Admin</h1>
+  <body id="body">
+    <div id="welcome">
+      <h1>Welcome Admin</h1>
+      <a href="http://fqd1618.cmslamp14.aut.ac.nz/assign2/booking.html"
+      >Create Booking</a
+    >
+    </div>
 
     <form>
-      
-
-      <div id="confirmDiv"><p>Confirmation Div</p></div>
-
-      <label>Search Booking</label>
-      <input type="text" name="bsearch" placeholder="e.g BRN00001" />
+      <div id="confirmDiv"><p></p></div>
+<div id="searchDiv">
 
 
-      <input
-        name="sbutton"
-        type="button"
-        onClick="getData('admin.php', 'confirmDiv', 'targetDiv', bsearch.value)"
-        value="Search"
-      />
+    <h2>Search Booking</h2>
+  
+    <input type="text" name="bsearch" placeholder="e.g BRN00001" />
+
+    <input
+      name="sbutton"
+      type="button"
+      onClick="getData('admin.php', 'confirmDiv', 'targetDiv', bsearch.value)"
+      value="Search"
+    />
+</div>
     </form>
 
-    <div id="targetDiv"><p>target Div</p></div>
+    <div id="targetDiv"><p></p></div>
   </body>
 </html>

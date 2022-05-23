@@ -26,14 +26,14 @@ if (isset($assignRef)) // update status of passed bookingReference to assigned
 {
     $statusQuery = "UPDATE bookings SET bstatus = 'Assigned' WHERE bookingID LIKE '$assignRef'";
     $statusResult = mysqli_query($conn, $statusQuery);
-    echo "A driver has been assigned to " . $assignRef;
+    echo "<p style='color:green;'><b>*A driver has been assigned to " . $assignRef . "*</b></p>";
 }
 
 $queryResult = mysqli_query($conn, "SELECT bookingID, cname, phone ,sbname,dsbname, pickupdate,pickuptime, bstatus FROM bookings WHERE bookingID LIKE '$assignRef'");
 
 
 
-echo "<div class='content'><table width='60%' border='1'>";
+echo "<div class='content'><table width='100%' border='1'>";
 echo "<tr><th>Booking Reference Number</th><th>Customer Name</th><th>Phone</th>
     <th>Pickup Suburb</th><th>Destination Suburb</th><th>Pickup Date and Time</th><th>Status</th><th>Assign</th>";
 $row = mysqli_fetch_assoc($queryResult);
@@ -48,9 +48,14 @@ while ($row) {
     $time = $row['pickuptime'];
     echo "<td>", date_format($date, 'd/m/Y'), " ", $time , "</td>";
     echo "<td>{$row['bstatus']}</td>";
-    echo '<td><input type="button" onClick="assign(\'assign.php\' , \'confirmDiv\' , \'' . $rowBookingID . '\')" value="Assign"/></td></tr>';
+    echo '<td><input type="button" onClick="assign(\'assign.php\' , \'targetDiv\' , \'' . $rowBookingID . '\')" value="Assign"/></td></tr>';
 
-    $row = mysqli_fetch_row($queryResult); // returns false when reached end of row
+    $row = mysqli_fetch_assoc($queryResult); // returns false when reached end of row
 
 }
 echo "</table></div>";
+
+mysqli_free_result($tableExistsQuery);
+mysqli_free_result($searchQuery);
+mysqli_close($conn);
+?>

@@ -36,7 +36,7 @@ $numrows = mysqli_num_rows($rows) + 1;
 
 $bookingid = refGenerator($numrows);
 $gendate = date("d/m/Y");
-$gentime = date("H:i");
+$gentime = date("H:i:s");
 $status = "Unassigned";
 // get name and password passed from client
 $cname = $_POST["cname"];

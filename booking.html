@@ -1,43 +1,49 @@
+<!DOCTYPE html>
 <html XMLns="http://www.w3.org/1999/xHTML">
   <head>
     <title>Create Booking</title>
     <script type="text/javascript" src="xhr.js"></script>
     <script type="text/javascript" src="booking.js"></script>
+    <link rel="stylesheet" href="./styles/styles.css" />
   </head>
-  <body onload="setDateTime()">
-    <h1>Create a booking</h1>
+  <body id="body" onload="setDateTime()">
+    <div id="welcome">
+      <h1>Create a booking</h1>
+      <a href="http://fqd1618.cmslamp14.aut.ac.nz/assign2/admin.html">Admin</a>
+    </div>
 
-    <div>
+    <div id="inputsDiv">
       <form>
-        <label>Full Name</label>
+        <label>Full Name:</label>
         <input type="text" name="cname" placeholder="e.g: Steve Hanks" />
 
         <br />
-        <label>Phone Number</label>
+        <label>Phone:</label>
         <input type="text" name="phone" placeholder="e.g: 021234567" />
         <br />
-        <label>Unit Number</label>
+        <label>Unit Number:</label>
         <input type="text" name="unumber" placeholder="e.g: 1" />
         <br />
-        <label>Street Number</label>
+        <label>Street Number:</label>
         <input type="text" name="snumber" placeholder="e.g: 42" />
         <br />
-        <label>Street Name</label>
+        <label>Street Name:</label>
         <input type="text" name="stname" placeholder="e.g: Farrington" />
         <br />
-        <label>Suburb</label>
+        <label>Suburb:</label>
         <input type="text" name="sbname" placeholder="e.g: Orakei" />
         <br />
-        <label>Destination Suburb</label>
+        <label>Destination Suburb:</label>
         <input type="text" name="dsbname" placeholder="Harrinsons" />
         <br />
-        <label>Pickup Date</label>
+        <label>Pickup Date:</label>
         <input type="date" id="date" name="date" />
         <br />
-        <label>Pickup Time</label>
-        <input type="time" id="time" name="time"  />
-
+        <label>Pickup Time:</label>
+        <input type="time" id="time" name="time" />
+      
         <br />
+      
         <input
           name="submit"
           type="button"
@@ -48,6 +54,8 @@
         />
       </form>
     </div>
+    
+   
 
     <div id="targetDiv"></div>
   </body>

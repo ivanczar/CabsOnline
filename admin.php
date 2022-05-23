@@ -19,39 +19,47 @@ if (!$dbSelect) {
 }
 
 $adminInput = $_POST["search"];
+$queryResult = null;
 
-if (isset($adminInput)) { // if admin inputs reference number
+if (!empty($adminInput)) {
 
     $queryResult = mysqli_query($conn, "SELECT bookingID, cname, phone ,sbname,dsbname, pickupdate,pickuptime, bstatus FROM bookings WHERE bookingID LIKE '$adminInput'");
 } else {
 
-    // $queryResult = mysqli_query($conn, "SELECT bookingID, cname, phone ,sbname,dsbname, pickupdate,pickuptime, bstatus FROM bookings WHERE pickupdate + cast(pickuptime as datetime) between ");
+
+    $queryResult = mysqli_query($conn, "SELECT bookingID, cname, phone ,sbname,dsbname, pickupdate,pickuptime, bstatus FROM bookings");
+    // $dateTime = 
+    // $queryResult = "SELECT bookingID, cname, phone ,sbname,dsbname, pickupdate,pickuptime, bstatus FROM bookings WHERE CONCAT(pickupdate, ' ', pickuptime) BETWEEN NOW() AND (NOW() + INTERVAL 2 HOUR)";
 }
 
 
 
-echo "<div class='content'><table width='60%' border='1'>";
+echo "<div class='content'><table width='100%' border='1'>";
 echo "<tr><th>Booking Reference Number</th><th>Customer Name</th><th>Phone</th>
     <th>Pickup Suburb</th><th>Destination Suburb</th><th>Pickup Date and Time</th><th>Status</th><th>Assign</th>";
 $row = mysqli_fetch_assoc($queryResult);
 while ($row) {
     $rowBookingID = $row['bookingID'];
-    echo "<tr><td>$rowBookingID</td>";
+    echo "<tr>";
+    echo "<td>$rowBookingID</td>";
     echo "<td>{$row['cname']}</td>";
     echo "<td>{$row['phone']}</td>";
     echo "<td>{$row['sbname']}</td>";
     echo "<td>{$row['dsbname']}</td>";
     $date = date_create($row['pickupdate']);
     $time = $row['pickuptime'];
-    echo "<td>", date_format($date, 'd/m/Y'), " ", $time , "</td>";
+    echo "<td>", date_format($date, 'd/m/Y'), " ", $time, "</td>";
     echo "<td>{$row['bstatus']}</td>";
-    echo '<td><input type="button" onClick="assign(\'assign.php\' , \'confirmDiv\' , \'' . $rowBookingID . '\')" value="Assign"/></td></tr>';
 
-    $row = mysqli_fetch_row($queryResult); // returns false when reached end of row
-
+    // $isAssigned = $row['bstatus'] === "Assigned"; disabled= \''.$isAssigned.'\' disabled= \'' . $isAssigned . '\' 
+    echo '<td><input type="button" onClick="assign(\'assign.php\' , \'targetDiv\' , \'' . $rowBookingID . '\')" value="Assign"   /></td>';
+    echo "</tr>";
+    $row = mysqli_fetch_assoc($queryResult);
 }
 echo "</table></div>";
-
+mysqli_free_result($tableExistsQuery);
+mysqli_free_result($searchQuery);
+mysqli_close($conn);
 
 
 ?>

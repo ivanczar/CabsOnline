@@ -24,6 +24,7 @@ function getData(dataSource, searchConfirmID, targetDivID, searchQuery) {
 function assign(dataSource, confirmDivID, bookingReference) {
   if (xhr) {
     var targetObj = document.getElementById(confirmDivID);
+    // var confObj = document.getElementById("confirmDiv");
     var requestbody = "bookingRef=" + encodeURIComponent(bookingReference);
 
     xhr.open("POST", dataSource, true); //open xtml request for POST and send to
@@ -32,7 +33,11 @@ function assign(dataSource, confirmDivID, bookingReference) {
       //   alert(xhr.readyState); // to let us see the state of the computation
       if (xhr.readyState == 4 && xhr.status == 200) {
         //4=complete, 200=OK
-
+        // var v1 = document.createElement("p")
+        // var v2 = document.createTextNode("Assigned a driver to " . bookingReference);
+        // v1.appendChild(v2);
+        // v1.style.color = "green";
+        // confObj.appendChild(v1);
         targetObj.innerHTML = xhr.responseText;
       }
     };
