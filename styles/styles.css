@@ -1,4 +1,4 @@
-#welcome{
+#welcome {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     width: 100%;
     border-collapse: collapse;
@@ -6,27 +6,35 @@
     background-color: rgb(0, 0, 0);
     /* background-image: url(./images/taxi.jpg); */
 }
-    #welcome h1{
-        color: white;
-        text-align: center;
-        font-size: 30px;
-        padding: 20px;
-    }
-    #welcome a{
-        display: flex;
-        color: white;
-        text-decoration: none;
-        justify-content: flex-end;
 
-    }
-
-#createBut{
-    width: 10%;
-    height: 10%;
-    margin-left: 1200px;
+#welcome h1 {
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    padding: 20px;
 }
-input[name=bsearch]{
-width: 50%;
+
+#welcome a {
+    display: flex;
+    color: white;
+    text-decoration: none;
+    justify-content: flex-end;
+
+}
+
+#body {
+    background-color: rgb(255, 251, 0);
+    /* background-color: rgb(255, 251, 0); */
+}
+
+#searchDiv {
+    margin-left: 500px;
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+input[name=bsearch] {
+    width: 50%;
     font-size: 20px;
     font-family: inherit;
     padding: 0.25em 0.5em;
@@ -34,30 +42,24 @@ width: 50%;
     border: 2px solid;
     border-radius: 4px;
 }
-input[name=sbutton]{
+
+input[name=sbutton] {
 
     width: 80px;
     height: 30px;
     margin-left: 10px;
     font-size: 20px;
-font-weight: bold;
+    font-weight: bold;
 }
-#body{
-    background-color: rgb(255, 251, 0);
-    /* background-color: rgb(255, 251, 0); */
-}
-#searchDiv{
-    margin-left: 500px;
-    margin-top: 10px;
-    margin-bottom: 50px;
-}
-#inputsDiv{
+
+#inputsDiv {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 20px;
 }
-#inputsDiv input{
+
+#inputsDiv input {
     width: 300px;
     font-size: 20px;
     font-family: inherit;
@@ -66,17 +68,19 @@ font-weight: bold;
     border: 2px solid;
     border-radius: 4px;
     display: flex;
-    
+
 }
-#inputsDiv label{
+
+#inputsDiv label {
     width: 100px;
     font-weight: bold;
     text-align: right;
 }
-#inputsDiv input[name=submit]{
+
+#inputsDiv input[name=submit] {
     width: 150px;
     height: 40px;
-    margin-left: 80px;    
+    margin-left: 80px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -86,11 +90,12 @@ font-weight: bold;
     border-color: black;
     font-weight: bold;
 }
-.content table{
+
+.content table {
     background-color: #fff;
 }
-p[name=reference]
-{
+
+p[name=reference] {
     font-size: 20px;
     font-family: inherit;
     /* padding: 0.25em 0.5em; */

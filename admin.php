@@ -52,7 +52,7 @@ while ($row) {
     echo "<td>{$row['bstatus']}</td>";
 
     // $isAssigned = $row['bstatus'] === "Assigned"; disabled= \''.$isAssigned.'\' disabled= \'' . $isAssigned . '\' 
-    echo '<td><input type="button" onClick="assign(\'assign.php\' , \'targetDiv\' , \'' . $rowBookingID . '\')" value="Assign"   /></td>';
+    echo '<td><input type="button" onClick="assign(\'assign.php\' , \'targetDiv\' , \'' . $rowBookingID . '\', \'' . $adminInput . '\')" value="Assign"   /></td>';
     echo "</tr>";
     $row = mysqli_fetch_assoc($queryResult);
 }

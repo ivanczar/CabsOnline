@@ -20,6 +20,8 @@ if (!$dbSelect) {
 
 
 $assignRef = $_POST["bookingRef"];
+$adminInput = $_POST["adminIn$adminInput"];
+$queryResult = null;
 
 
 if (isset($assignRef)) // update status of passed bookingReference to assigned
@@ -29,8 +31,12 @@ if (isset($assignRef)) // update status of passed bookingReference to assigned
     echo "<p style='color:green;'><b>*A driver has been assigned to " . $assignRef . "*</b></p>";
 }
 
-$queryResult = mysqli_query($conn, "SELECT bookingID, cname, phone ,sbname,dsbname, pickupdate,pickuptime, bstatus FROM bookings WHERE bookingID LIKE '$assignRef'");
+if (empty($adminInput)) {
+    $queryResult = mysqli_query($conn, "SELECT bookingID, cname, phone ,sbname,dsbname, pickupdate,pickuptime, bstatus FROM bookings");
+} else {
 
+    $queryResult = mysqli_query($conn, "SELECT bookingID, cname, phone ,sbname,dsbname, pickupdate,pickuptime, bstatus FROM bookings WHERE bookingID LIKE '$assignRef'");
+}
 
 
 echo "<div class='content'><table width='100%' border='1'>";
@@ -46,9 +52,10 @@ while ($row) {
     echo "<td>{$row['dsbname']}</td>";
     $date = date_create($row['pickupdate']);
     $time = $row['pickuptime'];
-    echo "<td>", date_format($date, 'd/m/Y'), " ", $time , "</td>";
+    
+    echo "<td>", date_format($date, 'd/m/Y'), " ", $time, "</td>";
     echo "<td>{$row['bstatus']}</td>";
-    echo '<td><input type="button" onClick="assign(\'assign.php\' , \'targetDiv\' , \'' . $rowBookingID . '\')" value="Assign"/></td></tr>';
+    echo '<td><input type="button" onClick="assign(\'assign.php\' , \'targetDiv\' , \'' . $rowBookingID . '\', \'' . $adminInput . '\')" value="Assign"/></td></tr>';
 
     $row = mysqli_fetch_assoc($queryResult); // returns false when reached end of row
 

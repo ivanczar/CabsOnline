@@ -21,11 +21,12 @@ function getData(dataSource, searchConfirmID, targetDivID, searchQuery) {
 }
 
 
-function assign(dataSource, confirmDivID, bookingReference) {
+function assign(dataSource, confirmDivID, bookingReference, searchQuery) {
   if (xhr) {
     var targetObj = document.getElementById(confirmDivID);
     // var confObj = document.getElementById("confirmDiv");
-    var requestbody = "bookingRef=" + encodeURIComponent(bookingReference);
+    var requestbody = "bookingRef=" + encodeURIComponent(bookingReference)
+    + "&search=" + encodeURIComponent(searchQuery);
 
     xhr.open("POST", dataSource, true); //open xtml request for POST and send to
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
