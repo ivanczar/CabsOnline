@@ -49,11 +49,6 @@ $dsbname = $_POST["dsbname"];
 $pickupdate = $_POST["date"];
 $pickuptime = $_POST["time"];
 
-//CREATE TABLE bookings(bookingID VARCHAR(20) PRIMARY KEY NOT NULL, gendate VARCHAR(20) NOT NULL,
-// gentime VARCHAR(20) NOT NULL, bstatus VARCHAR(20) NOT NULL, cname VARCHAR(20) NOT NULL,
-// phone VARCHAR(20) NOT NULL, unumber INT, snumber INT NOT NULL, stname VARCHAR(20) NOT NULL,
-// sbname VARCHAR(20), dsbname VARCHAR(20), pickupdate VARCHAR(20) NOT NULL, pickuptime VARCHAR(20) NOT NULL);
-
 $insertSQL = "INSERT INTO bookings VALUES 
 ('$bookingid', '$gendate', '$gentime', '$status',
  '$cname', '$phone', '$unumber', '$snumber', '$stname' ,

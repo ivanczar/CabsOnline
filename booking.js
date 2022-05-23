@@ -19,7 +19,24 @@ function setDateTime() {
   document.getElementById("date").min = date;
   document.getElementById("date").value = date;
 
-  console.log(time);
+}
+
+function getDate()
+{
+  var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+
+today = yyyy + '-' + mm + '-' + dd;
+return today;
+}
+
+function getTime() {
+  var today = new Date();
+  var time =
+    zeroPad(today.getHours()) + ":" + zeroPad(today.getMinutes());
+  return time;
 }
 
 function isValidPh(phone){
@@ -48,6 +65,10 @@ function getData(
   date,
   time
 ) {
+  console.log("current date: " + getDate());
+  console.log("input date: " + date);
+  console.log("current time: " + getTime());
+  console.log("input date: " + time);
   // VALIDATE TEXT TO TYPE TEXT? eg cname, stname, sbname, dsbname
   if (cname == "") {
     alert("Please provide a name");
@@ -63,6 +84,8 @@ function getData(
     alert("Please provide a pickup date");
   } else if (time == "") {
     alert("Please provide a pickup time");
+  } else if (date == getDate() && time < getTime()) {
+    alert("We do not support time travel yet, please provide a valid date/time");
   } else {
     if (xhr) {
       var obj = document.getElementById(divID); //set DOM object to variable
