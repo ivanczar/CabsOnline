@@ -1,10 +1,16 @@
+/**
+  Ivan Czar
+  19088501
+ */
+
+// file admin.js sets up the xhr object, encodes and sends data to server and validates user inputs with regex
 var xhr = createRequest();
 function getData(dataSource, searchConfirmID, targetDivID, searchQuery) {
   var regex = new RegExp(/^$|^BRN[0-9]{5}$/);
   if (!searchQuery.match(regex)) {
+    //if bookingRef doesnt match format
     window.alert("Incorrect reference number format. Try format: BRNXXXXX");
-    console.log('regex not match')
-    
+    console.log("regex not match");
   } else {
     if (xhr) {
       var targetObj = document.getElementById(targetDivID);

@@ -1,8 +1,15 @@
+/**
+  Ivan Czar
+  19088501
+ */
+
+// file booking.js sets html time and date inputs to current date, sets up the xhr object and validates user inputs
 function zeroPad(number) {
   if (number < 10) return "0" + number;
   else return number;
 }
 
+//Set value of date and time inputs to current date
 function setDateTime() {
   var today = new Date();
 
@@ -23,7 +30,7 @@ function setDateTime() {
 function getDate() {
   var today = new Date();
   var dd = String(today.getDate()).padStart(2, "0");
-  var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+  var mm = String(today.getMonth() + 1).padStart(2, "0");
   var yyyy = today.getFullYear();
 
   today = yyyy + "-" + mm + "-" + dd;
@@ -36,6 +43,7 @@ function getTime() {
   return time;
 }
 
+// validates phone number input using Regex
 function isValidPh(phone) {
   let isValid = true;
   if (!/^\d+$/.test(phone)) {
@@ -48,6 +56,7 @@ function isValidPh(phone) {
 }
 
 var xhr = createRequest();
+// encodes user data and sends to server as XHR object
 function getData(
   dataSource,
   divID,

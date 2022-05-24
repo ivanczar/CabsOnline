@@ -1,4 +1,9 @@
-<!--file data.php -->
+<!-- 
+    Ivan Czar
+    19088501
+ -->
+
+<!--file assign.php connects to db, updates booking status and re-renders table -->
 <?php
 require_once('../../conf/sqlinfo.inc.php');
 //establish connection to db
@@ -24,8 +29,9 @@ $adminInput = $_POST["search"]; //admin's input to searchbar
 $queryResult = null;
 
 
-if (isset($assignRef)) // update status of passed bookingReference to assigned
+if (isset($assignRef)) 
 {
+    // update status of passed bookingReference to assigned
     $updateQuery = "UPDATE bookings SET bstatus = 'Assigned' WHERE bookingID LIKE '$assignRef'";
     $updateResult = mysqli_query($conn, $updateQuery);
     echo "<p style='font-size:20px;'><b>*A driver has been assigned to " . $assignRef . "*</b></p>";
@@ -53,7 +59,6 @@ while ($row) {
     echo "<td>{$row['dsbname']}</td>";
     $date = date_create($row['pickupdate']);
     $time = $row['pickuptime'];
-
     echo "<td>", date_format($date, 'd/m/Y'), " ", $time, "</td>";
     echo "<td>{$row['bstatus']}</td>";
     echo '<td><input type="button" onClick="assign(\'assign.php\' , \'targetDiv\' , \'' . $rowBookingID . '\', \'' . $adminInput . '\')" value="Assign"/></td></tr>';

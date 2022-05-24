@@ -1,3 +1,8 @@
+/**
+  Ivan Czar
+  19088501
+ */
+
 function createRequest() {
   var xhr = false;
   if (window.XMLHttpRequest) {

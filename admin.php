@@ -1,4 +1,9 @@
-<!--file data.php -->
+<!-- 
+    Ivan Czar
+    19088501
+ -->
+
+<!--file admin.php connects to db, retrieves booking data and puts it into table, then returns table to client-->
 <?php
 require_once('../../conf/sqlinfo.inc.php');
 //establish connection to db
@@ -18,10 +23,10 @@ if (!$dbSelect) {
     echo "<p>Failed to SELECT</p>";
 }
 
-$adminInput = $_POST["search"];
+$adminInput = $_POST["search"]; 
 $queryResult = null;
 
-if (!empty($adminInput)) {
+if (!empty($adminInput)) { //if admin searches for a reference number
 
     $queryResult = mysqli_query($conn, "SELECT bookingID, cname, phone ,sbname,dsbname, pickupdate,pickuptime, bstatus FROM bookings WHERE bookingID LIKE '$adminInput'");
 } else {
@@ -46,8 +51,6 @@ while ($row) {
     $time = $row['pickuptime'];
     echo "<td>", date_format($date, 'd/m/Y'), " ", $time, "</td>";
     echo "<td>{$row['bstatus']}</td>";
-
-    // $isAssigned = $row['bstatus'] === "Assigned"; disabled= \''.$isAssigned.'\' disabled= \'' . $isAssigned . '\' 
     echo '<td><input type="button" onClick="assign(\'assign.php\' , \'targetDiv\' , \'' . $rowBookingID . '\', \'' . $adminInput . '\')" value="Assign"   /></td>';
     echo "</tr>";
     $row = mysqli_fetch_assoc($queryResult);

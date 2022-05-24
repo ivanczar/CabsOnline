@@ -1,4 +1,9 @@
-<!--file data.php -->
+<!-- 
+    Ivan Czar
+    19088501
+ -->
+
+<!--file data.php connects to db, gets booking data from XHR object (client), inserts data into db and returns responseText to XHR -->
 <?php
 require_once('../../conf/sqlinfo.inc.php');
 //establish connection to db
@@ -18,6 +23,7 @@ if (!$dbSelect) {
     echo "<p>Failed to SELECT</p>";
 }
 
+// Generates Booking Reference ID from numRows of db
 function refGenerator($rows)
 {
     $start = "BRN";
@@ -38,7 +44,6 @@ $bookingid = refGenerator($numrows);
 $gendate = date("d/m/Y");
 $gentime = date("H:i:s");
 $status = "Unassigned";
-// get name and password passed from client
 $cname = $_POST["cname"];
 $phone = $_POST["phone"];
 $unumber = $_POST["unumber"];
