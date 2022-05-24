@@ -20,7 +20,7 @@ if (!$dbSelect) {
 
 
 $assignRef = $_POST["bookingRef"];
-$adminInput = $_POST["adminIn$adminInput"];
+$adminInput = $_POST["search"];
 $queryResult = null;
 
 
@@ -28,7 +28,7 @@ if (isset($assignRef)) // update status of passed bookingReference to assigned
 {
     $statusQuery = "UPDATE bookings SET bstatus = 'Assigned' WHERE bookingID LIKE '$assignRef'";
     $statusResult = mysqli_query($conn, $statusQuery);
-    echo "<p style='color:green;'><b>*A driver has been assigned to " . $assignRef . "*</b></p>";
+    echo "<p style='font-size:20px;'><b>*A driver has been assigned to " . $assignRef . "*</b></p>";
 }
 
 if (empty($adminInput)) {
