@@ -19,23 +19,23 @@ if (!$dbSelect) {
 }
 
 
-$assignRef = $_POST["bookingRef"];
-$adminInput = $_POST["search"];
+$assignRef = $_POST["bookingRef"]; //booking reference of row
+$adminInput = $_POST["search"]; //admin's input to searchbar
 $queryResult = null;
 
 
 if (isset($assignRef)) // update status of passed bookingReference to assigned
 {
-    $statusQuery = "UPDATE bookings SET bstatus = 'Assigned' WHERE bookingID LIKE '$assignRef'";
-    $statusResult = mysqli_query($conn, $statusQuery);
+    $updateQuery = "UPDATE bookings SET bstatus = 'Assigned' WHERE bookingID LIKE '$assignRef'";
+    $updateResult = mysqli_query($conn, $updateQuery);
     echo "<p style='font-size:20px;'><b>*A driver has been assigned to " . $assignRef . "*</b></p>";
 }
 
 if (empty($adminInput)) {
-    $queryResult = mysqli_query($conn, "SELECT bookingID, cname, phone ,sbname,dsbname, pickupdate,pickuptime, bstatus FROM bookings");
+    $queryResult = mysqli_query($conn, "SELECT bookingID, cname, phone ,sbname,dsbname, pickupdate,pickuptime, bstatus FROM bookings WHERE CONCAT(pickupdate, ' ', pickuptime) < DATE_ADD(NOW(), INTERVAL 2 HOUR)");
 } else {
 
-    $queryResult = mysqli_query($conn, "SELECT bookingID, cname, phone ,sbname,dsbname, pickupdate,pickuptime, bstatus FROM bookings WHERE bookingID LIKE '$assignRef'");
+    $queryResult = mysqli_query($conn, "SELECT bookingID, cname, phone ,sbname,dsbname, pickupdate,pickuptime, bstatus FROM bookings WHERE bookingID LIKE '$adminInput'");
 }
 
 
