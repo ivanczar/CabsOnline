@@ -2,14 +2,16 @@
 Ivan Czar
 19088501
  */
-  
-
 
 /* BOOKING css */
+
+#bookingCont {
+    display: flex;
+}
 #inputsDiv {
     display: flex;
     flex: 1;
-    margin-top: 50px;
+    margin-top: 20px;
     flex-direction: column;
     align-items: center;
 
@@ -47,7 +49,7 @@ Ivan Czar
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #fff;
+    color: white;
     background-color: blueviolet;
     border-color: black;
     font-weight: bold;
@@ -60,10 +62,7 @@ p[name=reference] {
     border: 2px solid;
     border-radius: 4px;
     flex: 1;
-}
-
-#bookingCont {
-    display: flex;
+    padding: 50px;
 }
 
 #bookingTargetDiv {
@@ -71,7 +70,7 @@ p[name=reference] {
     flex-direction: row;
     align-items: center;
     margin-top: 50px;
-    margin-left: 100px;
+
 }
 
 /* admin css */
