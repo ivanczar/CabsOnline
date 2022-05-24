@@ -7,54 +7,53 @@
     <link rel="stylesheet" href="./styles/styles.css" />
   </head>
   <body id="body" onload="setDateTime()">
-    <div id="welcome">
-      <h1>Create a booking</h1>
-      <a href="http://fqd1618.cmslamp14.aut.ac.nz/assign2/admin.html">Admin</a>
+    <div id="bookingCont">
+      <div id="inputsDiv">
+        <a href="http://fqd1618.cmslamp14.aut.ac.nz/assign2/admin.html"
+          ><img src="./styles/images/cabs online.png" alt="cabs online"
+        /></a>
+        <form>
+          <label>Full Name (required):</label>
+          <input type="text" name="cname" placeholder="e.g: Steve Hanks" />
+
+          <br />
+          <label>Phone (required):</label>
+          <input type="text" name="phone" placeholder="e.g: 021234567" />
+          <br />
+          <label>Unit Number:</label>
+          <input type="text" name="unumber" placeholder="e.g: 1" />
+          <br />
+          <label>Street Number (required):</label>
+          <input type="text" name="snumber" placeholder="e.g: 42" />
+          <br />
+          <label>Street Name (required):</label>
+          <input type="text" name="stname" placeholder="e.g: Farrington" />
+          <br />
+          <label>Suburb:</label>
+          <input type="text" name="sbname" placeholder="e.g: Orakei" />
+          <br />
+          <label>Destination Suburb:</label>
+          <input type="text" name="dsbname" placeholder="Harrinsons" />
+          <br />
+          <label>Pickup Date (required):</label>
+          <input type="date" id="date" name="date" />
+          <br />
+          <label>Pickup Time (required):</label>
+          <input type="time" id="time" name="time" />
+
+          <br />
+
+          <input
+            name="submit"
+            type="button"
+            onClick="getData('booking.php','bookingTargetDiv', cname.value,
+   phone.value, unumber.value, snumber.value, stname.value, sbname.value, dsbname.value, 
+   date.value, time.value) "
+            value="Create Booking"
+          />
+        </form>
+      </div>
+      <div id="bookingTargetDiv"></div>
     </div>
-
-    <div id="inputsDiv">
-      <form>
-        <label>Full Name (required):</label>
-        <input type="text" name="cname" placeholder="e.g: Steve Hanks" />
-
-        <br />
-        <label>Phone (required):</label>
-        <input type="text" name="phone" placeholder="e.g: 021234567" />
-        <br />
-        <label>Unit Number:</label>
-        <input type="text" name="unumber" placeholder="e.g: 1" />
-        <br />
-        <label>Street Number (required):</label>
-        <input type="text" name="snumber" placeholder="e.g: 42" />
-        <br />
-        <label>Street Name (required):</label>
-        <input type="text" name="stname" placeholder="e.g: Farrington" />
-        <br />
-        <label>Suburb:</label>
-        <input type="text" name="sbname" placeholder="e.g: Orakei" />
-        <br />
-        <label>Destination Suburb:</label>
-        <input type="text" name="dsbname" placeholder="Harrinsons" />
-        <br />
-        <label>Pickup Date (required):</label>
-        <input type="date" id="date" name="date" />
-        <br />
-        <label>Pickup Time (required):</label>
-        <input type="time" id="time" name="time" />
-
-        <br />
-
-        <input
-          name="submit"
-          type="button"
-          onClick="getData('booking.php','targetDiv', cname.value,
- phone.value, unumber.value, snumber.value, stname.value, sbname.value, dsbname.value, 
- date.value, time.value) "
-          value="Create Booking"
-        />
-      </form>
-    </div>
-
-    <div id="targetDiv"></div>
   </body>
 </html>

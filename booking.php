@@ -60,8 +60,6 @@ if ($query) {
 
     $formatdate = date("d-m-Y", strtotime($pickupdate));
 
-
-
     echo "<p name='reference'>Thank you,<i> $cname</i>, for your booking!
     <br>
     Booking reference number:<b> $bookingid</b><br>

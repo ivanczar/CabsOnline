@@ -13,16 +13,13 @@ double check marking rubric
     <link rel="stylesheet" href="./styles/styles.css" />
   </head>
   <body id="body">
-    <div id="welcome">
-      <h1>Welcome Admin</h1>
+    <div id="searchDiv">
       <a href="http://fqd1618.cmslamp14.aut.ac.nz/assign2/booking.html"
-        >Create Booking</a
-      >
-    </div>
+        ><img src="./styles/images/cabs online.png" alt="cabs online"
+      /></a>
+      <form>
+        <div id="confirmDiv"><p></p></div>
 
-    <form>
-      <div id="confirmDiv"><p></p></div>
-      <div id="searchDiv">
         <h2>Search Booking</h2>
 
         <input type="text" name="bsearch" placeholder="e.g BRN00001" />
@@ -33,9 +30,8 @@ double check marking rubric
           onClick="getData('admin.php', 'confirmDiv', 'targetDiv', bsearch.value)"
           value="Search"
         />
-      </div>
-    </form>
-
-    <div id="targetDiv"><p></p></div>
+      </form>
+      <div id="targetDiv"><p></p></div>
+    </div>
   </body>
 </html>
