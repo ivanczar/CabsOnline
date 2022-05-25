@@ -29,20 +29,28 @@ function getData(dataSource, searchConfirmID, targetDivID, searchQuery) {
   }
 }
 
-function assign(dataSource, confirmDivID, bookingReference, searchQuery) {
+function assign(dataSource, confirmDivID, bookingReference, searchQuery, buttonID) {
   if (xhr) {
+    
     var targetObj = document.getElementById(confirmDivID);
+    
+    
     var requestbody =
-      "bookingRef=" +
-      encodeURIComponent(bookingReference) +
-      "&search=" +
-      encodeURIComponent(searchQuery);
-
-    xhr.open("POST", dataSource, true); //open xtml request for POST and send to
+    "bookingRef=" +
+    encodeURIComponent(bookingReference) +
+    "&search=" +
+    encodeURIComponent(searchQuery);
+    
+    xhr.open("POST", dataSource, true); //open xtml request for POST and send to server
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function () {
       if (xhr.readyState == 4 && xhr.status == 200) {
+        
         targetObj.innerHTML = xhr.responseText;
+        console.log(bookingReference+"button");
+        document.getElementById(buttonID).disabled=true;
+        
+
       }
     };
     xhr.send(requestbody);

@@ -61,8 +61,9 @@ while ($row) {
     $time = $row['pickuptime'];
     echo "<td>", date_format($date, 'd/m/Y'), " ", $time, "</td>";
     echo "<td>{$row['bstatus']}</td>";
-    $isAssigned = $row['bstatus'] == "Assigned";
-    echo '<td><input type="button" onClick="assign(\'assign.php\' , \'targetDiv\' , \'' . $rowBookingID . '\', \'' . $adminInput . '\')" value="Assign" disabled=\'' . $isAssigned . '\'/></td></tr>';
+    // $isAssigned = $row['bstatus'] == "Assigned"; disabled=\'' . $isAssigned . '\'
+    $buttonID = $rowBookingID."button";
+    echo '<td><input id=\'' . $buttonID . '\' type="button" onClick="assign(\'assign.php\' , \'targetDiv\' , \'' . $rowBookingID . '\', \'' . $adminInput . '\', \'' . $buttonID . '\')" value="Assign" /></td></tr>';
 
     $row = mysqli_fetch_assoc($queryResult); // returns false when reached end of row
 
