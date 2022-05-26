@@ -38,8 +38,10 @@ if (isset($assignRef))
 }
 
 if (empty($adminInput)) {
-    // $queryResult = mysqli_query($conn, "SELECT bookingID, cname, phone ,sbname,dsbname, pickupdate,pickuptime, bstatus FROM bookings WHERE CONCAT(pickupdate, ' ', pickuptime) < DATE_ADD(NOW(), INTERVAL 2 HOUR)");
-    $queryResult = mysqli_query($conn, "SELECT bookingID, cname, phone ,sbname,dsbname, pickupdate,pickuptime, bstatus FROM bookings WHERE bstatus LIKE 'Unassigned' AND CONCAT(pickupdate, ' ', pickuptime) < DATE_ADD(NOW(), INTERVAL 2 HOUR)");
+    $currentDate = date("Y-m-d H:i:s");
+    $rangeDate = date("Y-m-d H:i:s", strtotime('+2 hours'));
+    $queryResult = mysqli_query($conn, "SELECT bookingID, cname, phone ,sbname,dsbname, pickupdate,pickuptime, bstatus FROM bookings WHERE CONCAT(pickupdate, ' ', pickuptime) > '$currentDate' AND CONCAT(pickupdate, ' ', pickuptime) < '$rangeDate'");
+   
 } else {
 
     $queryResult = mysqli_query($conn, "SELECT bookingID, cname, phone ,sbname,dsbname, pickupdate,pickuptime, bstatus FROM bookings WHERE bookingID LIKE '$adminInput'");

@@ -31,7 +31,10 @@ if (!empty($adminInput)) { //if admin searches for a reference number
     $queryResult = mysqli_query($conn, "SELECT bookingID, cname, phone ,sbname,dsbname, pickupdate,pickuptime, bstatus FROM bookings WHERE bookingID LIKE '$adminInput'");
 } else {
 
-    $queryResult = mysqli_query($conn, "SELECT bookingID, cname, phone ,sbname,dsbname, pickupdate,pickuptime, bstatus FROM bookings WHERE bstatus LIKE 'Unassigned' AND CONCAT(pickupdate, ' ', pickuptime) < DATE_ADD(NOW(), INTERVAL 2 HOUR)");
+    $currentDate = date("Y-m-d H:i:s");
+    $rangeDate = date("Y-m-d H:i:s", strtotime('+2 hours'));
+    $queryResult = mysqli_query($conn, "SELECT bookingID, cname, phone ,sbname,dsbname, pickupdate,pickuptime, bstatus FROM bookings WHERE bstatus LIKE 'Unassigned' AND CONCAT(pickupdate, ' ', pickuptime) > '$currentDate' AND CONCAT(pickupdate, ' ', pickuptime) < '$rangeDate'");
+   
 }
 
 if (mysqli_num_rows($queryResult) == 0)
