@@ -91,6 +91,7 @@ function getData(
   } else {
     if (xhr) {
       var obj = document.getElementById(divID); //set DOM object to variable
+      var form = document.getElementById("bookingForm");
       var requestbody =
         "cname=" +
         encodeURIComponent(cname) +
@@ -115,10 +116,13 @@ function getData(
       xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
       xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
+          
           obj.innerHTML = xhr.responseText;
+          form.reset();
         }
       };
       xhr.send(requestbody);
+      
     }
   }
 }

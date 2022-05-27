@@ -14,6 +14,7 @@ function getData(dataSource, searchConfirmID, targetDivID, searchQuery) {
   } else {
     if (xhr) {
       var targetObj = document.getElementById(targetDivID);
+      
       // var confirmObj = document.getElementById(searchConfirmID);
       var requestbody = "search=" + encodeURIComponent(searchQuery);
 
@@ -22,9 +23,11 @@ function getData(dataSource, searchConfirmID, targetDivID, searchQuery) {
       xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
           targetObj.innerHTML = xhr.responseText;
+          
         }
       };
       xhr.send(requestbody);
+      
     }
   }
 }
