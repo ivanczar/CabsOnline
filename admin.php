@@ -24,7 +24,6 @@ if (!$dbSelect) {
 }
 
 $adminInput = $_POST["search"];
-$assignQuery = $_POST["assign"];
 $queryResult = null;
 
 if (!empty($adminInput)) { //if admin searches for a reference number
@@ -58,7 +57,7 @@ if (mysqli_num_rows($queryResult) == 0) {
         $time = $row['pickuptime'];
         echo "<td>", date_format($date, 'd/m/Y'), " ", $time, "</td>";
         echo "<td id=\'' . $statusID . '\' >{$row['bstatus']}</td>";
-        echo '<td><input id=\'' . $buttonID . '\' type="button" onClick="assign(\'assign.php\' , \'targetDiv\' , \'' . $rowBookingID . '\', \'' . $adminInput . '\', \'' . $buttonID . '\', \'' . $assignID . '\')" value="Assign" /></td></tr>';
+        echo '<td><input id=\'' . $buttonID . '\' type="button" onClick="assign(\'assign.php\' , \'confirmDiv\' , \'' . $rowBookingID . '\', \'' . $adminInput . '\', \'' . $buttonID . '\', \'' . $statusID . '\')" value="Assign" /></td></tr>';
         echo "</tr>";
         $row = mysqli_fetch_assoc($queryResult);
     }

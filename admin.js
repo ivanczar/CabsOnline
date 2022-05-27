@@ -5,8 +5,8 @@
 
 // file admin.js sets up the xhr object, encodes and sends data to server and validates user inputs with regex
 var xhr = createRequest();
-var assignQuery = null;
-function getData(dataSource, searchConfirmID, targetDivID, searchQuery, assignQuery) {
+
+function getData(dataSource, searchConfirmID, targetDivID, searchQuery) {
   var regex = new RegExp(/^$|^BRN[0-9]{5}$/);
   if (!searchQuery.match(regex)) {
     //if bookingRef doesnt match format
@@ -14,8 +14,8 @@ function getData(dataSource, searchConfirmID, targetDivID, searchQuery, assignQu
   } else {
     if (xhr) {
       var targetObj = document.getElementById(targetDivID);
-      var confirmObj = document.getElementById(searchConfirmID);
-      var requestbody = "search=" + encodeURIComponent(searchQuery) + "&assign=" + encodeURIComponent(assignQuery);
+      // var confirmObj = document.getElementById(searchConfirmID);
+      var requestbody = "search=" + encodeURIComponent(searchQuery);
 
       xhr.open("POST", dataSource, true); //open xtml request for POST and send to
       xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -52,7 +52,7 @@ function assign(
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function () {
       if (xhr.readyState == 4 && xhr.status == 200) {
-        assignQuery = xhr.responseText;
+        targetObj.innerHTML = xhr.responseText; //sets confirmation after assigning
         assignButton.disabled = true;
         statusCell.innerHTML = "Assigned";
       }

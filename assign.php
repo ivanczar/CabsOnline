@@ -36,14 +36,16 @@ if (isset($assignRef)) {
     echo "<p style='font-size:20px;'><b>*A driver has been assigned to " . $assignRef . "*</b></p>";
 }
 
-if (empty($adminInput)) {
-    $currentDate = date("Y-m-d H:i:s");
-    $rangeDate = date("Y-m-d H:i:s", strtotime('+2 hours'));
-    $queryResult = mysqli_query($conn, "SELECT bookingID, cname, phone ,sbname,dsbname, pickupdate,pickuptime, bstatus FROM bookings WHERE CONCAT(pickupdate, ' ', pickuptime) > '$currentDate' AND CONCAT(pickupdate, ' ', pickuptime) < '$rangeDate'");
-} else {
+// if (empty($adminInput)) {
+//     $currentDate = date("Y-m-d H:i:s");
+//     $rangeDate = date("Y-m-d H:i:s", strtotime('+2 hours'));
+//     $queryResult = mysqli_query($conn, "SELECT bookingID, cname, phone ,sbname,dsbname, pickupdate,pickuptime, bstatus FROM bookings WHERE CONCAT(pickupdate, ' ', pickuptime) > '$currentDate' AND CONCAT(pickupdate, ' ', pickuptime) < '$rangeDate'");
+// } else {
 
-    $queryResult = mysqli_query($conn, "SELECT bookingID, cname, phone ,sbname,dsbname, pickupdate,pickuptime, bstatus FROM bookings WHERE bookingID LIKE '$adminInput'");
-}
+//     $queryResult = mysqli_query($conn, "SELECT bookingID, cname, phone ,sbname,dsbname, pickupdate,pickuptime, bstatus FROM bookings WHERE bookingID LIKE '$adminInput'");
+// }
+
+
 
 //ECHO QUERY? PASS TO ADMIN.PHP TO THEN PRINT TABLE?
 
