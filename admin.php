@@ -46,7 +46,7 @@ if (mysqli_num_rows($queryResult) == 0) {
     while ($row) {
         $rowBookingID = $row['bookingID'];
         $buttonID = $rowBookingID . "button";
-        $statusID = $rowBookingID . "assign";
+        $statusID = $rowBookingID . "status";
         echo "<tr>";
         echo "<td>$rowBookingID</td>";
         echo "<td>{$row['cname']}</td>";
@@ -56,7 +56,7 @@ if (mysqli_num_rows($queryResult) == 0) {
         $date = date_create($row['pickupdate']);
         $time = $row['pickuptime'];
         echo "<td>", date_format($date, 'd/m/Y'), " ", $time, "</td>";
-        echo "<td id=\'' . $statusID . '\' >{$row['bstatus']}</td>";
+        echo "<td id=$statusID >{$row['bstatus']}</td>";
         echo '<td><input id=\'' . $buttonID . '\' type="button" onClick="assign(\'assign.php\' , \'confirmDiv\' , \'' . $rowBookingID . '\', \'' . $adminInput . '\', \'' . $buttonID . '\', \'' . $statusID . '\')" value="Assign" /></td></tr>';
         echo "</tr>";
         $row = mysqli_fetch_assoc($queryResult);

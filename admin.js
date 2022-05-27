@@ -41,6 +41,8 @@ function assign(
     var targetObj = document.getElementById(confirmDivID);
     var assignButton = document.getElementById(buttonID);
     var statusCell = document.getElementById(statusID);
+    
+    
 
     var requestbody =
       "bookingRef=" +
