@@ -138,6 +138,7 @@ p[name=reference] {
     flex-direction: row;
     align-items: center;
     margin-top: 50px;
+    width:fit-content;
 
 }
 
