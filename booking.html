@@ -12,41 +12,70 @@
     <link rel="stylesheet" href="./styles/styles.css" />
   </head>
   <body id="body" onload="setDateTime()">
-    <div id="bookingCont">
-      <div id="inputsDiv">
+    <header class="site-header">
+      <div class="wrapper site-header__wrapper">
         <a href="http://fqd1618.cmslamp14.aut.ac.nz/assign2/admin.html"
           ><img src="./styles/images/cabs_online.png" alt="cabs online"
         /></a>
-        <form>
-          <label>Full Name (required):</label>
-          <input type="text" name="cname" placeholder="e.g: Steve Hanks" />
+        <nav class="nav">
+          <a href="http://fqd1618.cmslamp14.aut.ac.nz/assign2/admin.html"><button class="navbutton">Book</button></a>
+        </nav>
+      </div>
+    </header>
+    <div id="bookingCont">
+      <div class="bookingText"></divclass>
 
-          <br />
-          <label>Phone (required):</label>
-          <input type="text" name="phone" placeholder="e.g: 021234567" />
-          <br />
-          <label>Unit Number:</label>
-          <input type="text" name="unumber" placeholder="e.g: 1" />
-          <br />
-          <label>Street Number (required):</label>
-          <input type="text" name="snumber" placeholder="e.g: 42" />
-          <br />
-          <label>Street Name (required):</label>
-          <input type="text" name="stname" placeholder="e.g: Farrington" />
-          <br />
-          <label>Suburb:</label>
-          <input type="text" name="sbname" placeholder="e.g: Orakei" />
-          <br />
-          <label>Destination Suburb:</label>
-          <input type="text" name="dsbname" placeholder="Harrinsons" />
-          <br />
+        <h1> Book your cab with CabsOnline</h1>
+       
+        <label> Fill in a few details and you'll be on your way!</label>
+        
+      </div>
+      <div id="inputsDiv">
+        <!-- <a href="http://fqd1618.cmslamp14.aut.ac.nz/assign2/admin.html"
+          ><img src="./styles/images/cabs_online.png" alt="cabs online"
+        /></a> -->
+        <form>
+
+          <label>Rider info</label>
+          <input type="text" name="cname" placeholder="Full Name (required)" />
+
+
+
+          <input type="text" name="phone" placeholder="Phone (required)" />
+
+
+          <label>Pickup info</label>
+          <input type="text" name="unumber" placeholder="Unit Number" />
+
+
+          <input
+            type="text"
+            name="snumber"
+            placeholder="Street Number (required)"
+          />
+
+
+          <input
+            type="text"
+            name="stname"
+            placeholder="Street Name (required)"
+          />
+
+
+          <input type="text" name="sbname" placeholder="Suburb" />
+
+                    <label>Destination info</label>
+          
+          <input type="text" name="dsbname" placeholder="Destination Suburb" />
+
           <label>Pickup Date (required):</label>
           <input type="date" id="date" name="date" />
-          <br />
+
           <label>Pickup Time (required):</label>
           <input type="time" id="time" name="time" />
 
-          <br />
+
+
 
           <input
             name="submit"
@@ -59,6 +88,7 @@
         </form>
       </div>
       <div id="bookingTargetDiv"></div>
+      
     </div>
   </body>
 </html>
