@@ -23,7 +23,8 @@ if (!$dbSelect) {
     echo "<p>Failed to SELECT</p>";
 }
 
-$adminInput = $_POST["search"]; 
+$adminInput = $_POST["search"];
+$assignQuery = $_POST["assign"];
 $queryResult = null;
 
 if (!empty($adminInput)) { //if admin searches for a reference number
@@ -34,20 +35,19 @@ if (!empty($adminInput)) { //if admin searches for a reference number
     $currentDate = date("Y-m-d H:i:s");
     $rangeDate = date("Y-m-d H:i:s", strtotime('+2 hours'));
     $queryResult = mysqli_query($conn, "SELECT bookingID, cname, phone ,sbname,dsbname, pickupdate,pickuptime, bstatus FROM bookings WHERE bstatus LIKE 'Unassigned' AND CONCAT(pickupdate, ' ', pickuptime) > '$currentDate' AND CONCAT(pickupdate, ' ', pickuptime) < '$rangeDate'");
-   
 }
 
-if (mysqli_num_rows($queryResult) == 0)
-{
+if (mysqli_num_rows($queryResult) == 0) {
     echo "<h1 style='margin-top:50px;'>No records found</h1>";
-}
-else{
+} else {
     echo "<div class='content'><table width='100%' border='1'>";
     echo "<tr><th>Booking Reference Number</th><th>Customer Name</th><th>Phone</th>
         <th>Pickup Suburb</th><th>Destination Suburb</th><th>Pickup Date and Time</th><th>Status</th><th>Assign</th>";
     $row = mysqli_fetch_assoc($queryResult);
     while ($row) {
         $rowBookingID = $row['bookingID'];
+        $buttonID = $rowBookingID . "button";
+        $statusID = $rowBookingID . "assign";
         echo "<tr>";
         echo "<td>$rowBookingID</td>";
         echo "<td>{$row['cname']}</td>";
@@ -57,14 +57,12 @@ else{
         $date = date_create($row['pickupdate']);
         $time = $row['pickuptime'];
         echo "<td>", date_format($date, 'd/m/Y'), " ", $time, "</td>";
-        echo "<td>{$row['bstatus']}</td>";
-        echo '<td><input type="button" onClick="assign(\'assign.php\' , \'targetDiv\' , \'' . $rowBookingID . '\', \'' . $adminInput . '\')" value="Assign"   /></td>';
+        echo "<td id=\'' . $statusID . '\' >{$row['bstatus']}</td>";
+        echo '<td><input id=\'' . $buttonID . '\' type="button" onClick="assign(\'assign.php\' , \'targetDiv\' , \'' . $rowBookingID . '\', \'' . $adminInput . '\', \'' . $buttonID . '\', \'' . $assignID . '\')" value="Assign" /></td></tr>';
         echo "</tr>";
         $row = mysqli_fetch_assoc($queryResult);
     }
 }
-
-
 echo "</table></div>";
 mysqli_free_result($tableExistsQuery);
 mysqli_free_result($searchQuery);
