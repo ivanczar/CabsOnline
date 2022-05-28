@@ -21,4 +21,4 @@ xhr.js
 styles.css
 readme.txt
 mysqlcommand.txt
-cabs online.png
+cabs_online.png

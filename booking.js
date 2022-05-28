@@ -1,9 +1,15 @@
 /**
   Ivan Czar
   19088501
+
+  This file sets html time and date inputs to current date, sets up the xhr object, validates user inputs and modifies DOM elements
  */
 
-// file booking.js sets html time and date inputs to current date, sets up the xhr object and validates user inputs
+/**
+ * 
+ * @param {Number} The date num 
+ * @returns 
+ */
 function zeroPad(number) {
   if (number < 10) return "0" + number;
   else return number;
@@ -29,8 +35,8 @@ function setDateTime() {
 
 function getDate() {
   var today = new Date();
-  var dd = String(today.getDate()).padStart(2, "0");
-  var mm = String(today.getMonth() + 1).padStart(2, "0");
+  var dd = zeroPad(today.getDate());
+  var mm = zeroPad(today.getMonth() + 1);
   var yyyy = today.getFullYear();
 
   today = yyyy + "-" + mm + "-" + dd;
@@ -84,7 +90,7 @@ function getData(
     alert("Please provide a pickup date");
   } else if (time == "") {
     alert("Please provide a pickup time");
-  } else if (date == getDate() && time < getTime()) {
+  } else if ((date == getDate() && time < getTime()) || date < getDate()) {
     alert(
       "We do not support time travel yet, please provide a valid date/time"
     );

@@ -37,7 +37,7 @@ if (!empty($adminInput)) { //if admin searches for a reference number
 }
 
 if (mysqli_num_rows($queryResult) == 0) {
-    echo "<h1 style='margin-top:50px;'>No records found</h1>";
+    echo "<h1>No records found</h1>";
 } else {
     echo "<div class='content'><table width='100%' border='1'>";
     echo "<tr><th>Booking Reference Number</th><th>Customer Name</th><th>Phone</th>
