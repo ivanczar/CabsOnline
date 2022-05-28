@@ -19,7 +19,7 @@
           ><img src="./styles/images/cabs_online.png" alt="cabs online"
         /></a>
         <nav class="nav">
-          <a href="http://fqd1618.cmslamp14.aut.ac.nz/assign2/booking.html"><button" class="navbutton">Admin</button></a>
+          <a href="http://fqd1618.cmslamp14.aut.ac.nz/assign2/booking.html"><button" class="navbutton">BOOK</button></a>
         </nav>
       </div>
     </header>
@@ -28,9 +28,10 @@
     <div id="searchDiv">
       <h2>Search Booking:</h2>
       <form>
-        <input type="text" name="bsearch" placeholder="e.g BRN00001" />
+        <input class="formInput" type="text" name="bsearch" placeholder="e.g BRN00001" />
 
         <input
+        class="yellowButton"
           name="sbutton"
           type="button"
           onClick="getData('admin.php', 'confirmDiv', 'targetDiv', bsearch.value)"
