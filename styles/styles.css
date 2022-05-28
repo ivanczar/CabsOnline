@@ -1,6 +1,7 @@
 /* 
 Ivan Czar
 19088501
+Stylesheet for the website
  */
 
 /* BOOKING css */
@@ -15,7 +16,6 @@ Ivan Czar
     justify-content: space-between;
     align-items: center;
     background-color: #fff100;
-    padding: 10px;
     flex-wrap: wrap;
     box-shadow: (0, 0, 0, 0.25) 0px 1px 5px 0px
 }
