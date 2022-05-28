@@ -1,9 +1,9 @@
 <!-- 
     Ivan Czar
     19088501
+    booking.php file connects to db, gets booking data from XHR object (client), inserts data into db and returns responseText to XHR
  -->
 
-<!--file data.php connects to db, gets booking data from XHR object (client), inserts data into db and returns responseText to XHR -->
 <?php
 require_once('../../conf/sqlinfo.inc.php');
 //establish connection to db
@@ -23,7 +23,10 @@ if (!$dbSelect) {
     echo "<p>Failed to SELECT</p>";
 }
 
-// Generates Booking Reference ID from numRows of db
+/**
+ * @param rows The number of rows returned from the query
+ * @return ref  the reference number of the last row inserted into the db
+ */
 function refGenerator($rows)
 {
     $start = "BRN";

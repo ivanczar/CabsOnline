@@ -2,20 +2,22 @@
   Ivan Czar
   19088501
 
-  This file sets html time and date inputs to current date, sets up the xhr object, validates user inputs and modifies DOM elements
+  booking.js file sets html time and date inputs to current date, sets up the xhr object, validates user inputs and modifies DOM elements
  */
 
 /**
- * 
- * @param {Number} The date num 
- * @returns 
+ * Pads a number with a leading zero if it is less than 10
+ * @param {Number} number the number to be padded
+ * @returns The number padded with 0's
  */
 function zeroPad(number) {
   if (number < 10) return "0" + number;
   else return number;
 }
 
-//Set value of date and time inputs to current date
+/**
+ * Sets the date and time DOM inputs to the client's current date and time
+ */
 function setDateTime() {
   var today = new Date();
 
@@ -33,6 +35,10 @@ function setDateTime() {
   document.getElementById("date").value = date;
 }
 
+/**
+ * Gets the client's current date
+ * @returns {String} the current date in the format YYYY-MM-DD
+ */
 function getDate() {
   var today = new Date();
   var dd = zeroPad(today.getDate());
@@ -43,13 +49,21 @@ function getDate() {
   return today;
 }
 
+/**
+ * Gets the client's current time
+ * @returns {String} the current time in the format HH:MM
+ */
 function getTime() {
   var today = new Date();
   var time = zeroPad(today.getHours()) + ":" + zeroPad(today.getMinutes());
   return time;
 }
 
-// validates phone number input using Regex
+/**
+ * Validates phone number input using Regex
+ * @param {String} phone the phone number to be validated
+ * @returns {Boolean} true if the phone number is valid, false otherwise
+ */
 function isValidPh(phone) {
   let isValid = true;
   if (!/^\d+$/.test(phone)) {
@@ -62,7 +76,21 @@ function isValidPh(phone) {
 }
 
 var xhr = createRequest();
-// encodes user data and sends to server as XHR object
+
+/**
+ * Gets the booking data from the server using an AJAX request and displays it in the DOM
+ * @param {File} dataSource The file to be requested
+ * @param {Element} divID The DOM element to be populated with the data
+ * @param {String} cname  the name of the customer
+ * @param {String} phone the phone number of the customer
+ * @param {String} unumber the unit number of the customer
+ * @param {String} snumber the street number of the customer
+ * @param {String} stname the street name of the customer
+ * @param {String} sbname the suburb name of the customer
+ * @param {String} dsbname the destination suburb name of the customer
+ * @param {Date} date the pickup date of the booking
+ * @param {Time} time the pickup time of the booking
+ */
 function getData(
   dataSource,
   divID,
@@ -118,7 +146,7 @@ function getData(
         "&time=" +
         encodeURIComponent(time);
 
-      xhr.open("POST", dataSource, true); //open xtml request for POST and send to
+      xhr.open("POST", dataSource, true); //open xtml request for POST and send to server
       xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
       xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
