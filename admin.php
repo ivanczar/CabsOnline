@@ -1,9 +1,10 @@
 <!-- 
     Ivan Czar
     19088501
+    admin.php file connects to db, retrieves booking data and puts it into table, then returns table to client
  -->
 
-<!--file admin.php connects to db, retrieves booking data and puts it into table, then returns table to client-->
+
 <?php
 require_once('../../conf/sqlinfo.inc.php');
 //establish connection to db

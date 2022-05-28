@@ -1,7 +1,6 @@
 /**
   Ivan Czar
   19088501
-
   booking.js file sets html time and date inputs to current date, sets up the xhr object, validates user inputs and modifies DOM elements
  */
 
@@ -150,13 +149,11 @@ function getData(
       xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
       xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
-          
           obj.innerHTML = xhr.responseText;
           form.reset();
         }
       };
       xhr.send(requestbody);
-      
     }
   }
 }
