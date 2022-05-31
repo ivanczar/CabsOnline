@@ -151,6 +151,7 @@ function getData(
         if (xhr.readyState == 4 && xhr.status == 200) {
           obj.innerHTML = xhr.responseText;
           form.reset();
+          setDateTime();
         }
       };
       xhr.send(requestbody);

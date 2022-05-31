@@ -23,6 +23,13 @@ if (!$dbSelect) {
     echo "<p>Failed to SELECT</p>";
 }
 
+$createSQL = "CREATE TABLE IF EXISTS bookings(bookingID VARCHAR(20) PRIMARY KEY NOT NULL, gendate VARCHAR(20) NOT NULL,
+gentime VARCHAR(20) NOT NULL, bstatus VARCHAR(20) NOT NULL, cname VARCHAR(20) NOT NULL,
+phone VARCHAR(20) NOT NULL, unumber INT, snumber INT NOT NULL, stname VARCHAR(20) NOT NULL,
+sbname VARCHAR(20), dsbname VARCHAR(20), pickupdate VARCHAR(20) NOT NULL, pickuptime VARCHAR(20) NOT NULL);";
+$createQuery = mysqli_query($conn, $createSQL);
+
+
 /**
  * @param rows The number of rows returned from the query
  * @return ref  the reference number of the last row inserted into the db
@@ -66,7 +73,7 @@ $query = mysqli_query($conn, $insertSQL);
 
 if ($query) {
 
-    $formatdate = date("d-m-Y", strtotime($pickupdate));
+    $formatdate = date("d/m/Y", strtotime($pickupdate));
 
     echo "<p name='reference'>Thank you,<i> $cname</i>, for your booking!
     <br>
